@@ -1,4 +1,4 @@
-package task01;
+package whileloop1;
 
 import java.util.Scanner;
 
