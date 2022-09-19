@@ -31,12 +31,22 @@ exit
 public class Solution {
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
-        int minSecond = Integer.MAX_VALUE;
+        int minNumber = Integer.MAX_VALUE;
+        int secondMinNumber = Integer.MAX_VALUE;
+
         while (console.hasNextInt()) {
             int x = console.nextInt();
-            if (minSecond > x)
-                minSecond = x;
+            if (minNumber > x) {
+                minNumber = x;
+continue;
+            }
+            if (secondMinNumber > minNumber) {
+                secondMinNumber = x;
+                continue;
+
+            }
+            System.out.println(secondMinNumber);
+
         }
-        System.out.println(minSecond);
     }
 }
