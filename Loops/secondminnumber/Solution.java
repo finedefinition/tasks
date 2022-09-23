@@ -29,24 +29,34 @@ exit
 •	Считывать данные с клавиатуры необходимо в цикле while.
  */
 public class Solution {
+
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
-        int minNumber = Integer.MAX_VALUE;
-        int secondMinNumber = Integer.MAX_VALUE;
+        int minNumber = console.nextInt();
+        int secondMinNumber = console.nextInt();
 
+        if (secondMinNumber < minNumber) { // {2, 1}
+            int tmp = secondMinNumber;
+            secondMinNumber = minNumber;
+            minNumber = tmp;
+        }
         while (console.hasNextInt()) {
             int x = console.nextInt();
-            if (minNumber > x) {
+            if (minNumber == secondMinNumber) {
+                if (x < minNumber) {  // {2, 2, 1}
+                    minNumber = x;
+                } else {
+                    secondMinNumber = x;
+                }
+
+            } else if (x < minNumber) { // {2, 2, 3}
+                secondMinNumber = minNumber;
                 minNumber = x;
-continue;
-            }
-            if (secondMinNumber > minNumber) {
+            } else if (x > minNumber && x < secondMinNumber) { // {1, 3, 2}
                 secondMinNumber = x;
-                continue;
-
             }
-            System.out.println(secondMinNumber);
-
         }
+        System.out.println(secondMinNumber);
+
     }
 }
