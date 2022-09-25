@@ -1,4 +1,4 @@
-package forloopexamples;
+package forlooptriangle;
 
 
 public class Solution {
